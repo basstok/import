@@ -8,12 +8,12 @@ teaching example using fictional public data, not a complete migration tool.
 - Preserve the offline default. Only explicit `--apply` may write to a server.
 - Preserve original bytes, deterministic IDs, exact ordered batch digests,
   bounded input/network work, and completed-receipt verification.
-- Use only the public import REST API with a current human Manager session.
+- Use only the public import REST API with a current human Admin session.
   Never introduce direct storage writes, credential bootstrapping, auth bypasses,
   automatic retries, or saved-position recovery.
 - Keep sample data fictional. Never commit tokens, real exports, or account data.
 - Reject unsupported input rather than silently discarding records or widening
-  private access. Historical Members do not gain sign-in or Manager authority.
+  private access. Historical Members do not gain sign-in or Admin authority.
 - Read the target community's `/openapi.json` before extending request shapes.
   The public reference is https://github.com/basstok/api.
 - Public documentation describes this example and public API behavior only.

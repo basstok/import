@@ -87,7 +87,7 @@ class ImportExampleTests(unittest.TestCase):
         self.assertEqual(content["content"]["authorship"]["member_id"], members["members"][0]["id"])
         self.assertEqual(content["comments"][0]["sequence"], 1)
         self.assertEqual(content["content"]["engagement"], {"views": 0})
-        self.assertIn("**tomatoes**", content["content"]["body"])
+        self.assertIn("**next steps**", content["content"]["body"])
         chain = "0" * 64
         for kind, body in self.plan["batches"]:
             body_digest = hashlib.sha256(body).hexdigest()
@@ -180,7 +180,7 @@ class ImportExampleTests(unittest.TestCase):
                     example.apply_plan(self.plan, origin, self.session)
                 self.assertNotIn("SECRET", str(error.exception))
                 self.assertNotIn("test-human-session", str(error.exception))
-                self.assertIn("PUT /api/v1/imports/fictional-garden-v1", str(error.exception))
+                self.assertIn("PUT /api/v1/imports/fictional-messages-v1", str(error.exception))
             self.assertEqual(len(requests), 2)
 
     def test_completed_begin_short_circuits(self):

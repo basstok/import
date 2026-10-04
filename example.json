@@ -1,21 +1,21 @@
 {
   "members": [
-    {"id": "gardener-ada", "name": "Ada Fern", "created_at": "2021-03-01T09:00:00Z"},
-    {"id": "gardener-noah", "name": "Noah Moss", "created_at": "2021-03-02T10:00:00Z"}
+    {"id": "person-1", "name": "Member 1", "created_at": "2021-03-01T09:00:00Z"},
+    {"id": "person-2", "name": "Member 2", "created_at": "2021-03-02T10:00:00Z"}
   ],
   "posts": [
     {
-      "id": "spring-seeds",
-      "title": "Our first spring seedlings",
-      "body": "The **tomatoes** have sprouted!\n\nWhat are you growing this spring?",
-      "author_id": "gardener-ada",
+      "id": "call-notes",
+      "title": "Notes from the call",
+      "body": "Here are the **next steps** from our call.\n\nShall we review the document tomorrow?",
+      "author_id": "person-1",
       "created_at": "2021-03-10T09:00:00Z",
       "visibility": "public",
       "comments": [
         {
-          "id": "basil-reply",
-          "body": "Basil on the windowsill. *Tiny leaves, big plans.*",
-          "author_id": "gardener-noah",
+          "id": "review-reply",
+          "body": "Yes. I will add my comments before the next call.",
+          "author_id": "person-2",
           "created_at": "2021-03-10T10:00:00Z"
         }
       ]

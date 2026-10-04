@@ -9,7 +9,7 @@ This small Python example is ready to read, run, and adapt.
 
 ## Try it in one minute
 
-A **fictional garden club**: two Members, one post, and one Comment, with their
+A **fictional conversation**: two Members, one post, and one Comment, with their
 original authors and dates. Python 3.10 or later. No packages or account needed.
 
 ```sh
@@ -39,18 +39,18 @@ Bodies use CommonMark Markdown. No source roles or private access rules are inve
 ## Import into a test community
 
 Use a separate, disposable community, its exact Organization ID, and a **current
-human Manager session**. Agent/OAuth tokens cannot import. Obtain a session using
+human Admin session**. App/OAuth tokens cannot import. Obtain a session using
 the authentication supported by that community; the example adds no login system.
 
 Save the token in a private file outside this repository. Never put it in command
 arguments, source code, screenshots, or public issues.
 
 ```sh
-chmod 600 /private/manager-session
+chmod 600 /private/admin-session
 python3 import_example.py \
   --organization YOUR_ORGANIZATION_ID \
   --origin https://community.example \
-  --session-file /private/manager-session \
+  --session-file /private/admin-session \
   --apply
 ```
 
@@ -77,7 +77,7 @@ POST /api/v1/imports/{importId}/complete                require completed: true
   opaque Member, Content and Comment IDs.
 - **Original evidence:** the first batch preserves the exact source bytes.
 - **One recipe:** a SHA-256 chain binds the ordered batch bodies before writing.
-- **One boundary:** every import request uses the public, Manager-authorized API.
+- **One boundary:** every import request uses the public, Admin-authorized API.
 
 The [import guide](https://github.com/basstok/api/blob/main/reference.md#import-existing-data)
 and [OpenAPI contract](https://github.com/basstok/api/blob/main/openapi.json) describe
@@ -108,7 +108,7 @@ These checks are offline, not evidence of a production migration.
 ## Import XenForo 2
 
 For an actual XenForo community, use the **XenForo 2.0–2.3** import workflow.
-Sign in as a Manager and open
+Sign in as an Admin and open
 **Administration → Import**.
 
 1. Upload your **SQL** export.

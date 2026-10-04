@@ -14,7 +14,7 @@ from urllib.parse import urlsplit
 import uuid
 
 
-SOURCE_SYSTEM = "fictional-garden"
+SOURCE_SYSTEM = "fictional-messages"
 MAX_SOURCE = 1024 * 1024
 MAX_RESPONSE = 64 * 1024
 
@@ -83,7 +83,7 @@ def canonical_id(organization, import_id, kind, source_id):
                          encoded([organization, import_id, kind, source_id]).decode()))
 
 
-def build_plan(source, organization="example-community", import_id="fictional-garden-v1"):
+def build_plan(source, organization="example-community", import_id="fictional-messages-v1"):
     text(organization, 128)
     require(isinstance(import_id, str) and re.fullmatch(r"[A-Za-z0-9_-]{1,109}", import_id),
             "Use a short import ID containing ASCII letters, digits, hyphens or underscores.")
@@ -244,7 +244,7 @@ def apply_plan(plan, origin, session_file):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=Path(__file__).with_name("example.json"))
-    parser.add_argument("--import-id", default="fictional-garden-v1")
+    parser.add_argument("--import-id", default="fictional-messages-v1")
     parser.add_argument("--organization")
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--origin")
@@ -255,7 +255,7 @@ def main(argv=None):
     try:
         plan = build_plan(args.source, args.organization or "example-community", args.import_id)
         counts = plan["counts"]
-        print(f"Historical garden · Members: {counts['members']} · Posts: {counts['contents']} · Comments: {counts['comments']}")
+        print(f"Historical messages · Members: {counts['members']} · Posts: {counts['contents']} · Comments: {counts['comments']}")
         print("Phases: source → members → stage-content → publish-content → report → complete")
         print("Plan SHA-256: " + plan["declaration"]["plan_sha256"])
         if args.apply:
